@@ -12,6 +12,10 @@ public class Result extends JPanel{
 		setBackground(new Color(150,150,150));
 		
 		
+		
+		
+		
+		
 		JTextArea textArea = new JTextArea();
 		textArea.setBackground(new Color(245,242,237));
 		textArea.setBounds(811, 180, 439, 450);

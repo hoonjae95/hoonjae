@@ -19,27 +19,28 @@ class FoodKind extends JFrame implements MouseListener{
 	
 	public FoodKind() {
 		super("³ª 2¹ø¤ŠÇÁ·¹ÀÓ");
-		setLayout(null);
+		getContentPane().setLayout(null);
 		setSize(1300,800);
+		getContentPane().setBackground(new Color(228,247,186));
 		
-		koreanMenu koreanmenu = new koreanMenu();
-		japanMenu japanmenu = new japanMenu();
-		chinaMenu chinamenu = new chinaMenu();
-		westMenu westmenu = new westMenu();
+		KoreanMenu koreanmenu = new KoreanMenu();
+		JapanMenu japanmenu = new JapanMenu();
+		ChinaMenu chinamenu = new ChinaMenu();
+		WestMenu westmenu = new WestMenu();
 		Result result = new Result();
 		
 		
 			
-		ImageIcon khlogo = new ImageIcon("image/khlogo.png");
+		ImageIcon khlogo = new ImageIcon("image/khlogo3.png");
 		JLabel lb_khlogo = new JLabel(khlogo);
-		lb_khlogo.setBounds(150,0,90,85);
-		add(lb_khlogo);
+		lb_khlogo.setBounds(0,11,800,100);
+		getContentPane().add(lb_khlogo);
 		
 		
 		ImageIcon menusel = new ImageIcon("image/menusel.png");
 		JLabel lb_menusel = new JLabel(menusel);
 		lb_menusel.setBounds(45,200,712,500);
-		add(lb_menusel);
+		getContentPane().add(lb_menusel);
 		
 		
 		
@@ -47,11 +48,11 @@ class FoodKind extends JFrame implements MouseListener{
 		
 		
 		JButton kfood_btn = new JButton("ÇÑ½Ä");
-		kfood_btn.setFont(new Font("µ¸¿ò", Font.PLAIN, 20));
-		kfood_btn.setBackground(new Color(0, 14, 39));
+		kfood_btn.setFont(new Font("Aharoni ±½°Ô", Font.BOLD, 30));
+		kfood_btn.setBackground(new Color(166, 166, 166));
 		kfood_btn.setForeground(Color.WHITE);
-		kfood_btn.setBounds(45, 91, 161, 59);
-		add(kfood_btn);
+		kfood_btn.setBounds(45, 105, 161, 59);
+		getContentPane().add(kfood_btn);
 		
 		
 		
@@ -60,8 +61,8 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				
-				add(koreanmenu);
-				add(result);
+				getContentPane().add(koreanmenu);
+				getContentPane().add(result);
 				
 				remove(lb_menusel);
 				remove(chinamenu);
@@ -79,17 +80,17 @@ class FoodKind extends JFrame implements MouseListener{
 		
 		
 		JButton jfood_btn = new JButton("ÀÏ½Ä");
-		jfood_btn.setFont(new Font("µ¸¿ò", Font.PLAIN, 20));
+		jfood_btn.setFont(new Font("Aharoni ±½°Ô", Font.BOLD, 30));
 		jfood_btn.setForeground(Color.WHITE);
-		jfood_btn.setBounds(218, 91, 161, 59);
-		jfood_btn.setBackground(new Color(0, 14, 39));
-		add(jfood_btn);
+		jfood_btn.setBounds(218, 105, 161, 59);
+		jfood_btn.setBackground(new Color(166, 166, 166));
+		getContentPane().add(jfood_btn);
 		
 		jfood_btn.addActionListener(new ActionListener() { 
 			@Override
 			public void actionPerformed(ActionEvent e) { 
-				add(japanmenu);
-				add(result);
+				getContentPane().add(japanmenu);
+				getContentPane().add(result);
 				
 				remove(lb_menusel);
 				remove(koreanmenu);
@@ -105,17 +106,17 @@ class FoodKind extends JFrame implements MouseListener{
 		
 		
 		JButton cfood_btn = new JButton("Áß½Ä");
-		cfood_btn.setFont(new Font("µ¸¿ò", Font.PLAIN, 20));
+		cfood_btn.setFont(new Font("Aharoni ±½°Ô", Font.BOLD, 30));
 		cfood_btn.setForeground(Color.WHITE);
-		cfood_btn.setBounds(564, 91, 161, 59);
-		cfood_btn.setBackground(new Color(0, 14, 39));
-		add(cfood_btn);
+		cfood_btn.setBounds(564, 105, 161, 59);
+		cfood_btn.setBackground(new Color(166, 166, 166));
+		getContentPane().add(cfood_btn);
 		
 		cfood_btn.addActionListener(new ActionListener() { 
 			@Override
 			public void actionPerformed(ActionEvent e) { 
-				add(chinamenu);
-				add(result);
+				getContentPane().add(chinamenu);
+				getContentPane().add(result);
 				
 				remove(lb_menusel);
 				remove(koreanmenu);
@@ -132,17 +133,17 @@ class FoodKind extends JFrame implements MouseListener{
 		
 		
 		JButton wfood_btn = new JButton("¾ç½Ä");
-		wfood_btn.setFont(new Font("µ¸¿ò", Font.PLAIN, 20));
+		wfood_btn.setFont(new Font("Aharoni ±½°Ô", Font.BOLD, 30));
 		wfood_btn.setForeground(Color.WHITE);
-		wfood_btn.setBounds(391, 91, 161, 59);
-		wfood_btn.setBackground(new Color(0, 14, 39));
-		add(wfood_btn);
+		wfood_btn.setBounds(391, 105, 161, 59);
+		wfood_btn.setBackground(new Color(166, 166, 166));
+		getContentPane().add(wfood_btn);
 		
 		wfood_btn.addActionListener(new ActionListener() { 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				add(westmenu);
-				add(result);
+				getContentPane().add(westmenu);
+				getContentPane().add(result);
 				
 				remove(lb_menusel);
 				remove(koreanmenu);
@@ -187,7 +188,7 @@ class FoodKind extends JFrame implements MouseListener{
 	@Override
 	public void mouseExited(MouseEvent e) {
 		JButton b = (JButton)e.getSource();
-        b.setBackground(new Color(0, 14, 39));
+        b.setBackground(new Color(166, 166, 166)); //<<¹öÆ°ÀÌ¶û ¶È°°Àº»ö±ò
         b.setForeground(Color.white);
 	
 	}

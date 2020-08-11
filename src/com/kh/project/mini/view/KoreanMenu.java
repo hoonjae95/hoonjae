@@ -16,22 +16,22 @@ import javax.swing.JTextArea;
 
 
 
-public class koreanMenu extends JPanel {
+public class KoreanMenu extends JPanel {
 	
 	int count = 0;
 	String show = "";
 	
-	public koreanMenu() {
+	public KoreanMenu() {
 		setLayout(null);
 		setSize(1300,800);
-		setBackground(new Color(37,23,22));
+		setBackground(new Color(228,247,186));
 		
 		
 		
 			JPanel foodPanel = new JPanel(); // 공통패널
 	      foodPanel.setBounds(12, 172, 713, 560);
 	      foodPanel.setLayout(null);
-	      foodPanel.setBackground(new Color(37, 23, 22));
+	      foodPanel.setBackground(new Color(228,247,186));
 		
 		
 		
@@ -170,6 +170,10 @@ public class koreanMenu extends JPanel {
                     ok[j].setEnabled(false);
                 }
             });
+            
+            
+            
+            
  
         }
         

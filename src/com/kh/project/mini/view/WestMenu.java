@@ -12,39 +12,37 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-class japanMenu extends JPanel{
-	
-	
-	public japanMenu() {
+public class WestMenu extends JPanel{
+	public WestMenu() {
 		setLayout(null);
 		setSize(1300,800);
-		setBackground(new Color(37,23,22));
+		setBackground(new Color(228,247,186));
 		
 
 		JPanel foodPanel = new JPanel(); // 공통패널
       foodPanel.setBounds(12, 172, 713, 560);
       foodPanel.setLayout(null);
-      foodPanel.setBackground(new Color(37, 23, 22));
+      foodPanel.setBackground(new Color(228,247,186));
 	
 	
 	
 	
 	
-      String j_menu[] = { "스시", "스시", "스시", "스시", "스시", "스시"};
-      JButton menu_btn[] = new JButton[j_menu.length];
+      String w_menu[] = { "스테이크", "스테이크", "스테이크", "스테이크", "스테이크", "스테이크"};
+      JButton menu_btn[] = new JButton[w_menu.length];
       int price[] = { 5000, 5500, 6000, 6500, 7000, 7500};
       
-    TextField amount[] = new TextField[j_menu.length];
-   Button minus[] = new Button[j_menu.length];
-    Button plus[] = new Button[j_menu.length];
-    JButton ok[] = new JButton[j_menu.length];
-    Label l[] = new Label[j_menu.length];
+    TextField amount[] = new TextField[w_menu.length];
+   Button minus[] = new Button[w_menu.length];
+    Button plus[] = new Button[w_menu.length];
+    JButton ok[] = new JButton[w_menu.length];
+    Label l[] = new Label[w_menu.length];
     
-    ImageIcon icon[] = new ImageIcon[j_menu.length];
-    for (int i = 0; i < j_menu.length; i++) {
+    ImageIcon icon[] = new ImageIcon[w_menu.length];
+    for (int i = 0; i < w_menu.length; i++) {
         
         
-        menu_btn[i] = new JButton(j_menu[i]);
+        menu_btn[i] = new JButton(w_menu[i]);
         if (i < 3) {
             menu_btn[i].setBounds(20 + (i * 224), 10, 202, 187);
         } else {
@@ -98,6 +96,10 @@ class japanMenu extends JPanel{
     }
     add(foodPanel);
 		
-		}
-}
 		
+		setVisible(true);
+		
+		
+	}
+
+}
