@@ -30,11 +30,15 @@ public class FoodMain extends JFrame{
 		setLocationRelativeTo(null); //메인프레임 가운데배치
 		
 		
-		JLabel mainTitle = new JLabel("kh로고"); //메인프레임 상단타이틀
+//		JLabel mainTitle = new JLabel("kh로고"); //메인프레임 상단타이틀
+//		mainTitle.setFont(new Font("돋움", Font.PLAIN, 30)); // 메인타이틀 글자 굵게
+//		mainTitle.setBounds(190, 50, 500, 50); // 메인타이틀 위치
+//		add(mainTitle);
 		
-		mainTitle.setFont(new Font("돋움", Font.PLAIN, 30)); // 메인타이틀 글자 굵게
-		mainTitle.setBounds(190, 50, 500, 50); // 메인타이틀 위치
-		add(mainTitle);
+		ImageIcon khlogo = new ImageIcon("image/khlogo.png");
+		JLabel lb_khlogo = new JLabel(khlogo);
+		lb_khlogo.setBounds(150,0,200,190);
+		add(lb_khlogo);
 		
 		
 		
@@ -55,7 +59,6 @@ public class FoodMain extends JFrame{
 		eat_btn.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent arg0) { 
 				FoodKind foodkind = new FoodKind();
-//				add(new FoodKind());
 				revalidate(); // 누르면 다음 그림으로 넘어가게함
 				repaint(); // 안쓰여도됨
 			} 
