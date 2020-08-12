@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -35,6 +36,12 @@ public class KoreanMenu extends JPanel {
 		foodPanel.setBounds(12, 172, 713, 560);
 		foodPanel.setLayout(null);
 		foodPanel.setBackground(new Color(228,247,186));
+		
+//		// 탭 누르면 주문 현황
+//		ImageIcon orderlist = new ImageIcon("image/reference.png");
+//		JLabel lb_orderlist = new JLabel(orderlist);
+//		lb_orderlist.setBounds(814,29,370,600);
+//		add(lb_orderlist);
 		
 		
 		

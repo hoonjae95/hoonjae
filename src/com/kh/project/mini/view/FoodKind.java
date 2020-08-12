@@ -48,6 +48,19 @@ class FoodKind extends JFrame implements MouseListener{
 		getContentPane().add(lb_menusel);
 		
 		
+		// 탭 누르기전 식당 이용사항
+		ImageIcon reference = new ImageIcon("image/reference.png");
+		JLabel lb_reference = new JLabel(reference);
+		lb_reference.setBounds(814,29,370,600);
+		getContentPane().add(lb_reference);
+		
+		
+//		// 탭 누르면 주문 현황
+//		ImageIcon orderlist = new ImageIcon("image/orderlist.png");
+//		JLabel lb_orderlist = new JLabel(orderlist);
+//		lb_orderlist.setBounds(814,29,370,600);
+		
+		
 		
 		
 		
@@ -65,12 +78,11 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(koreanmenu);
-				
 				if(menucount==0) {
-					menucount +=menucount;
+					menucount++;
 					getContentPane().add(result);
-				} 
-				
+				}
+				remove(lb_reference);
 				remove(lb_menusel);
 				remove(chinamenu);
 				remove(japanmenu);
@@ -98,10 +110,10 @@ class FoodKind extends JFrame implements MouseListener{
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(japanmenu);
 				if(menucount==0) {
-					menucount +=menucount;
+					menucount++;
 					getContentPane().add(result);
 				} 
-				
+				remove(lb_reference);
 				remove(lb_menusel);
 				remove(koreanmenu);
 				remove(chinamenu);
@@ -134,10 +146,10 @@ class FoodKind extends JFrame implements MouseListener{
 				getContentPane().add(westmenu);
 				
 				if(menucount==0) {
-					menucount +=menucount;
+					menucount++;
 					getContentPane().add(result);
 				} 
-				
+				remove(lb_reference);
 				remove(lb_menusel);
 				remove(koreanmenu);
 				remove(japanmenu);
@@ -168,10 +180,10 @@ class FoodKind extends JFrame implements MouseListener{
 				getContentPane().add(chinamenu);
 				
 				if(menucount==0) {
-					menucount +=menucount;
+					menucount++;
 					getContentPane().add(result);
 				} 
-				
+				remove(lb_reference);
 				remove(lb_menusel);
 				remove(koreanmenu);
 				remove(japanmenu);
@@ -199,7 +211,7 @@ class FoodKind extends JFrame implements MouseListener{
 		//닫기버튼누르면 2번째 프레임창만 꺼짐
 		Button close = new Button("닫기");
 		close.setBounds(1111,647,97,23);
-		add(close);
+		getContentPane().add(close);
         
         close.addActionListener(new ActionListener() {
             

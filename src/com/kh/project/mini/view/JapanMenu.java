@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -30,6 +31,7 @@ public class JapanMenu extends JPanel{
     foodPanel.setBounds(12, 172, 713, 560);
     foodPanel.setLayout(null);
     foodPanel.setBackground(new Color(228,247,186));
+    
 	
 	
       String j_menu[] = { "³ª°¡»çÅ°Â«»Í", "   ¶ó   ¸à", "   ÃÊ   ¹ä ", "   ¿ì   µ¿", "Å¸ÄÚ¾ß³¢", "   ¸ð   ¸§"};
