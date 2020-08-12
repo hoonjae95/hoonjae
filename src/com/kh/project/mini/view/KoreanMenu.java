@@ -3,10 +3,12 @@ package com.kh.project.mini.view;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Label;
+import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -106,17 +108,19 @@ public class KoreanMenu extends JPanel {
         add(foodPanel);
         
         
-//		JTextArea textArea = new JTextArea();
-//		textArea.setBackground(new Color(245,242,237));
-//		textArea.setBounds(811, 180, 439, 450);
-//		add(textArea);
+		JTextArea ta = new JTextArea();
+		ta.setBackground(new Color(245,242,237));
+		ta.setBounds(811, 180, 439, 450);
+		ta.setText("   상품명        단가        수량        합계\n\n");
+		ta.setEditable(false);
+		add(ta);
 		
 		
 		
         for (int i = 0; i < k_menu.length; i++) {
             int j = i;
  
-            // 햄버그 버튼 이벤트
+            // 
             menu_btn[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -160,12 +164,11 @@ public class KoreanMenu extends JPanel {
             
             //확인 버튼 이벤트
             ok[i].addActionListener(new ActionListener() {
- 
+//            	JTextArea ta = new Result().getTa();
                 @Override
                 public void actionPerformed(ActionEvent e) { 
                     show = menu_btn[j].getActionCommand();
-                    JTextArea textArea = new JTextArea();
-                    textArea.append("   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
+                    ta.append("   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
                             + "원" + "\n");
                     ok[j].setEnabled(false);
                 }
@@ -198,50 +201,54 @@ public class KoreanMenu extends JPanel {
         add(reset);
         add(close);
         
-//        // order 주문버튼
-//        order.addActionListener(new ActionListener() {
-// 
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                JOptionPane.showMessageDialog(null, ta.getText() + " 주문되었습니다. \n이용해주셔서 감사합니다.");
-//                for (int i = 0; i < k_menu.length; i++) {
-//                    menu_btn[i].setEnabled(true);
-//                    minus[i].setEnabled(false);
-//                    plus[i].setEnabled(false);
-//                    amount[i].setText("0");
-//                    ta.setText("   상품명        단가        수량        합계\n\n");
-// 
-//                }
-//            }
-//        });
-// 
-//        // reset 초기화 버튼
-//        reset.addActionListener(new ActionListener() {
-// 
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                for (int i = 0; i < k_menu.length; i++) {
-//                    menu_btn[i].setEnabled(true);
-//                    minus[i].setEnabled(false);
-//                    plus[i].setEnabled(false);
-//                    amount[i].setText("0");
-//                    ta.setText("   상품명        단가        수량        합계\n\n");
-// 
-//                }
-//            }
-//        });
-// 
-// 
+        // order 주문버튼
+        order.addActionListener(new ActionListener() {
+ 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//            	JTextArea ta = new Result().getTa();
+                JOptionPane.showMessageDialog(null, ta.getText() + " 주문되었습니다. \n이용해주셔서 감사합니다.");
+                for (int i = 0; i < k_menu.length; i++) {
+                    menu_btn[i].setEnabled(true);
+                    minus[i].setEnabled(false);
+                    plus[i].setEnabled(false);
+                    amount[i].setText("0");
+                    
+                    ta.setText("   상품명        단가        수량        합계\n\n");
+ 
+                }
+            }
+        });
+        
+ 
+        // reset 초기화 버튼
+        reset.addActionListener(new ActionListener() {
+ 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//            	JTextArea ta = new Result().getTa();
+                for (int i = 0; i < k_menu.length; i++) {
+                    menu_btn[i].setEnabled(true);
+                    minus[i].setEnabled(false);
+                    plus[i].setEnabled(false);
+                    amount[i].setText("0");
+                    ta.setText("   상품명        단가        수량        합계\n\n");
+ 
+                }
+            }
+        });
+ 
+ 
         //close 닫기버튼
         
 //        close.addActionListener(new ActionListener() {
 //            
 //            @Override
 //            public void actionPerformed(ActionEvent e) {
-//               remove(FoodKind);
+//               dispose();
 //            }
 //        });
-//        
+        
         
         
         

@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -16,6 +17,7 @@ class JapanMenu extends JPanel{
 	
 	
 	public JapanMenu() {
+		
 		setLayout(null);
 		setSize(1300,800);
 		setBackground(new Color(228,247,186));
@@ -96,7 +98,67 @@ class JapanMenu extends JPanel{
         foodPanel.add(ok[i]);
         foodPanel.add(menu_btn[i]);
     }
+    
+    
+    Button order = new Button("주문");
+    
+    Button reset = new Button("초기화");
+    
+    Button close = new Button("닫기");
+    
+    
+
+    order.setBounds(789,647,97,23);
+    reset.setBounds(943,647,97,23);
+    close.setBounds(1111,647,97,23);
+    
+    
+    add(order);
+    add(reset);
+    add(close);
+    
+    // order 주문버튼
+    order.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        	JTextArea ta = new JTextArea();
+            JOptionPane.showMessageDialog(null, ta.getText() + " 주문되었습니다. \n이용해주셔서 감사합니다.");
+            for (int i = 0; i < j_menu.length; i++) {
+                menu_btn[i].setEnabled(true);
+                minus[i].setEnabled(false);
+                plus[i].setEnabled(false);
+                amount[i].setText("0");
+                ta.setText("   상품명        단가        수량        합계\n\n");
+
+            }
+        }
+    });
+
+    // reset 초기화 버튼
+    reset.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        	JTextArea ta = new JTextArea();
+            for (int i = 0; i < j_menu.length; i++) {
+                menu_btn[i].setEnabled(true);
+                minus[i].setEnabled(false);
+                plus[i].setEnabled(false);
+                amount[i].setText("0");
+                ta.setText("   상품명        단가        수량        합계\n\n");
+
+            }
+        }
+    });
+    
+    
+    
+    
+    
     add(foodPanel);
+    setVisible(true);
+    
 		
 		}
 }

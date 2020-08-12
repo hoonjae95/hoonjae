@@ -1,5 +1,6 @@
 package com.kh.project.mini.view;
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -27,7 +28,7 @@ class FoodKind extends JFrame implements MouseListener{
 		JapanMenu japanmenu = new JapanMenu();
 		ChinaMenu chinamenu = new ChinaMenu();
 		WestMenu westmenu = new WestMenu();
-		Result result = new Result();
+//		Result result = new Result();
 		
 		
 			
@@ -62,7 +63,7 @@ class FoodKind extends JFrame implements MouseListener{
 			public void actionPerformed(ActionEvent e) { 
 				
 				getContentPane().add(koreanmenu);
-				getContentPane().add(result);
+//				getContentPane().add(result);
 				
 				remove(lb_menusel);
 				remove(chinamenu);
@@ -90,7 +91,7 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(japanmenu);
-				getContentPane().add(result);
+//				getContentPane().add(result);
 				
 				remove(lb_menusel);
 				remove(koreanmenu);
@@ -116,7 +117,7 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(chinamenu);
-				getContentPane().add(result);
+//				getContentPane().add(result);
 				
 				remove(lb_menusel);
 				remove(koreanmenu);
@@ -143,7 +144,7 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().add(westmenu);
-				getContentPane().add(result);
+//				getContentPane().add(result);
 				
 				remove(lb_menusel);
 				remove(koreanmenu);
@@ -163,8 +164,31 @@ class FoodKind extends JFrame implements MouseListener{
 		wfood_btn.addMouseListener(this);
 		jfood_btn.addMouseListener(this);
 		
+		
+		
+		
+//close ´Ý±â¹öÆ°
+		
+		Button close = new Button("´Ý±â");
+		close.setBounds(1111,647,97,23);
+		add(close);
+        
+        close.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               dispose();
+            }
+        });
+		
+		
+		
+		
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		
+		
 		
 		
 	}
