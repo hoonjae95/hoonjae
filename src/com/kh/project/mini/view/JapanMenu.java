@@ -26,28 +26,25 @@ public class JapanMenu extends JPanel{
 		setBackground(new Color(228,247,186));
 		
 
-		JPanel foodPanel = new JPanel(); // 공통패널
-      foodPanel.setBounds(12, 172, 713, 560);
-      foodPanel.setLayout(null);
-      foodPanel.setBackground(new Color(228,247,186));
-	
-	
-	
+	JPanel foodPanel = new JPanel(); // 공통패널
+    foodPanel.setBounds(12, 172, 713, 560);
+    foodPanel.setLayout(null);
+    foodPanel.setBackground(new Color(228,247,186));
 	
 	
       String j_menu[] = { "나가사키짬뽕", "   라   멘", "   초   밥 ", "   우   동", "타코야끼", "   모   름"};
       JButton menu_btn[] = new JButton[j_menu.length];
       int price[] = { 5000, 5500, 6000, 6500, 7000, 7500};
+      TextField amount[] = new TextField[j_menu.length];
+      Button minus[] = new Button[j_menu.length];
+      Button plus[] = new Button[j_menu.length];
+      JButton ok[] = new JButton[j_menu.length];
+      Label l[] = new Label[j_menu.length];
+      Label foodname[] = new Label[j_menu.length];
+      ImageIcon icon[] = new ImageIcon[j_menu.length];
       
-    TextField amount[] = new TextField[j_menu.length];
-   Button minus[] = new Button[j_menu.length];
-    Button plus[] = new Button[j_menu.length];
-    JButton ok[] = new JButton[j_menu.length];
-    Label l[] = new Label[j_menu.length];
-    Label foodname[] = new Label[j_menu.length];
-    
-    ImageIcon icon[] = new ImageIcon[j_menu.length];
-    for (int i = 0; i < j_menu.length; i++) {
+      
+      for (int i = 0; i < j_menu.length; i++) {
         
         
         menu_btn[i] = new JButton(j_menu[i]);
@@ -66,7 +63,6 @@ public class JapanMenu extends JPanel{
         amount[i] = new TextField("0");
         amount[i].setBackground(Color.white);
         amount[i].setEditable(false);
-//        amount[i].
         amount[i].setBounds(menu_btn[i].getX() + 80, menu_btn[i].getY() + 220 , 40, 20);
         
         
@@ -183,19 +179,13 @@ public class JapanMenu extends JPanel{
              }
          });
          
-         
-         
-         
 
      }
     
     
     Button order = new Button("주문");
-    
     Button reset = new Button("초기화");
-    
     Button close = new Button("닫기");
-    
     
 
     order.setBounds(789,647,97,23);
@@ -243,11 +233,6 @@ public class JapanMenu extends JPanel{
             }
         }
     });
-    
-    
-    
-    
-    
     
     setVisible(true);
     

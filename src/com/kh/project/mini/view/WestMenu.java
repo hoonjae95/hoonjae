@@ -25,10 +25,10 @@ public class WestMenu extends JPanel{
 		setBackground(new Color(228,247,186));
 		
 
-		JPanel foodPanel = new JPanel(); // 공통패널
-      foodPanel.setBounds(12, 172, 713, 560);
-      foodPanel.setLayout(null);
-      foodPanel.setBackground(new Color(228,247,186));
+	JPanel foodPanel = new JPanel(); // 공통패널
+    foodPanel.setBounds(12, 172, 713, 560);
+    foodPanel.setLayout(null);
+    foodPanel.setBackground(new Color(228,247,186));
 	
 	
 	
@@ -38,17 +38,15 @@ public class WestMenu extends JPanel{
       JButton menu_btn[] = new JButton[w_menu.length];
       int price[] = { 5000, 5500, 6000, 6500, 7000, 7500};
       
-    TextField amount[] = new TextField[w_menu.length];
-   Button minus[] = new Button[w_menu.length];
-    Button plus[] = new Button[w_menu.length];
-    JButton ok[] = new JButton[w_menu.length];
-    Label l[] = new Label[w_menu.length];
-    Label foodname[] = new Label[w_menu.length];
-    
-    ImageIcon icon[] = new ImageIcon[w_menu.length];
-    for (int i = 0; i < w_menu.length; i++) {
-        
-        
+      TextField amount[] = new TextField[w_menu.length];
+      Button minus[] = new Button[w_menu.length];
+      Button plus[] = new Button[w_menu.length];
+      JButton ok[] = new JButton[w_menu.length];
+      Label l[] = new Label[w_menu.length];
+      Label foodname[] = new Label[w_menu.length];
+      ImageIcon icon[] = new ImageIcon[w_menu.length];
+      
+      for (int i = 0; i < w_menu.length; i++) {
         menu_btn[i] = new JButton(w_menu[i]);
         if (i < 3) {
             menu_btn[i].setBounds(20 + (i * 224), 10, 190, 187);
@@ -61,11 +59,10 @@ public class WestMenu extends JPanel{
 
   
 
-//         수량 부분
+//       수량 부분
         amount[i] = new TextField("0");
         amount[i].setBackground(Color.white);
         amount[i].setEditable(false);
-//        amount[i].
         amount[i].setBounds(menu_btn[i].getX() + 80, menu_btn[i].getY() + 220 , 40, 20);
         
         
@@ -179,18 +176,12 @@ public class WestMenu extends JPanel{
              }
          });
          
-         
-         
-         
-
      }
     
     
     
 	 Button order = new Button("주문");
-     
      Button reset = new Button("초기화");
-     
      Button close = new Button("닫기");
      
      
@@ -242,13 +233,6 @@ public class WestMenu extends JPanel{
      });
 
     
-    
-    
-    
-    
-    
-    
-		
 		
 		setVisible(true);
 		

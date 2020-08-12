@@ -24,12 +24,16 @@ public class ChinaMenu extends JPanel{
 		setBackground(new Color(228,247,186));
 		
 
-		JPanel foodPanel = new JPanel(); // 공통패널
-      foodPanel.setBounds(12, 172, 713, 560);
-      foodPanel.setLayout(null);
-      foodPanel.setBackground(new Color(228,247,186));
+	
+		
+	JPanel foodPanel = new JPanel(); // 공통패널
+    foodPanel.setBounds(12, 172, 713, 560);
+    foodPanel.setLayout(null);
+    foodPanel.setBackground(new Color(228,247,186));
 	
 	
+    
+      
 	
 	
      
@@ -38,17 +42,16 @@ public class ChinaMenu extends JPanel{
       JButton menu_btn[] = new JButton[c_menu.length];
       int price[] = { 5000, 5500, 6000, 6500, 7000, 7500};
       
-    TextField amount[] = new TextField[c_menu.length];
-   Button minus[] = new Button[c_menu.length];
-    Button plus[] = new Button[c_menu.length];
-    JButton ok[] = new JButton[c_menu.length];
-    Label l[] = new Label[c_menu.length];
-    Label foodname[] = new Label[c_menu.length];
-    
-    ImageIcon icon[] = new ImageIcon[c_menu.length];
-    for (int i = 0; i < c_menu.length; i++) {
-        
-        
+      TextField amount[] = new TextField[c_menu.length];
+      Button minus[] = new Button[c_menu.length];
+      Button plus[] = new Button[c_menu.length];
+      JButton ok[] = new JButton[c_menu.length];
+      Label l[] = new Label[c_menu.length];
+      Label foodname[] = new Label[c_menu.length];
+      ImageIcon icon[] = new ImageIcon[c_menu.length];
+      
+      
+      for (int i = 0; i < c_menu.length; i++) {
         menu_btn[i] = new JButton(c_menu[i]);
         if (i < 3) {
             menu_btn[i].setBounds(20 + (i * 224), 10, 190, 187);
@@ -61,11 +64,10 @@ public class ChinaMenu extends JPanel{
 
   
 
-//         수량 부분
+//      수량 부분
         amount[i] = new TextField("0");
         amount[i].setBackground(Color.white);
         amount[i].setEditable(false);
-//        amount[i].
         amount[i].setBounds(menu_btn[i].getX() + 80, menu_btn[i].getY() + 220 , 40, 20);
         
         
@@ -81,7 +83,7 @@ public class ChinaMenu extends JPanel{
         plus[i].setBounds(menu_btn[i].getX() + 125, menu_btn[i].getY()+220, 20, 20);
         plus[i].setEnabled(false);
 
-      //'이름'라벨
+        //'이름'라벨
         foodname[i] = new Label(c_menu[i] + "");
         foodname[i].setBounds(menu_btn[i].getX() + 5, menu_btn[i].getY()+190 , 110, 25);
         foodname[i].setBackground(Color.lightGray);
@@ -113,7 +115,6 @@ public class ChinaMenu extends JPanel{
     }
     
     add(foodPanel);
-    
     
 	JTextArea ta = new JTextArea();
 	ta.setBackground(new Color(245,242,237));
@@ -174,27 +175,20 @@ public class ChinaMenu extends JPanel{
              @Override
              public void actionPerformed(ActionEvent e) { 
                  show = menu_btn[j].getActionCommand();
+                 
                  ta.append("   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
                          + "원" + "\n");
                  ok[j].setEnabled(false);
              }
          });
-         
-         
-         
-         
 
      }
     
     
 	 Button order = new Button("주문");
-     
      Button reset = new Button("초기화");
-     
      Button close = new Button("닫기");
      
-     
-
      order.setBounds(789,647,97,23);
      reset.setBounds(943,647,97,23);
      close.setBounds(1111,647,97,23);
@@ -235,7 +229,7 @@ public class ChinaMenu extends JPanel{
                  minus[i].setEnabled(false);
                  plus[i].setEnabled(false);
                  amount[i].setText("0");
-                 ta.setText("   상품명        단가        수량        합계\n\n");
+//                 ta.setText("   상품명        단가        수량        합계\n\n");
 
              }
          }

@@ -23,39 +23,36 @@ public class KoreanMenu extends JPanel {
 	
 	int count = 0;
 	String show = "";
-	public JTextArea ta = new JTextArea();
 	
 	public KoreanMenu() {
 		setLayout(null);
 		setSize(1300,800);
 		setBackground(new Color(228,247,186));
 		
+	
+		
+		JPanel foodPanel = new JPanel(); // 공통패널
+		foodPanel.setBounds(12, 172, 713, 560);
+		foodPanel.setLayout(null);
+		foodPanel.setBackground(new Color(228,247,186));
 		
 		
-			JPanel foodPanel = new JPanel(); // 공통패널
-	      foodPanel.setBounds(12, 172, 713, 560);
-	      foodPanel.setLayout(null);
-	      foodPanel.setBackground(new Color(228,247,186));
 		
 		
-		
-		
-		
-	      String k_menu[] = { "된장찌개", "김치찌개", "제육볶음", "돌솥비빔밥", "해물수제비", "김치볶음밥"};
-	      JButton menu_btn[] = new JButton[k_menu.length];
-	      int price[] = { 5000, 5500, 6000, 6500, 7000, 7500};
-	      
+		String k_menu[] = { "된장찌개", "김치찌개", "제육볶음", "돌솥비빔밥", "해물수제비", "김치볶음밥"};
+      	JButton menu_btn[] = new JButton[k_menu.length];
+      	int price[] = { 5000, 5500, 6000, 6500, 7000, 7500};
         TextField amount[] = new TextField[k_menu.length];
-       Button minus[] = new Button[k_menu.length];
+        Button minus[] = new Button[k_menu.length];
         Button plus[] = new Button[k_menu.length];
         JButton ok[] = new JButton[k_menu.length];
         Label l[] = new Label[k_menu.length];
         Label foodname[] = new Label[k_menu.length];
-        
         ImageIcon icon[] = new ImageIcon[k_menu.length];
+        
+        
+        
         for (int i = 0; i < k_menu.length; i++) {
-            
-            
             menu_btn[i] = new JButton(k_menu[i]);
             if (i < 3) {
                 menu_btn[i].setBounds(20 + (i * 224), 10, 190, 187);
@@ -68,11 +65,10 @@ public class KoreanMenu extends JPanel {
 
       
 
-//             수량 부분
+            // "수량" 체크
             amount[i] = new TextField("0");
             amount[i].setBackground(Color.white);
             amount[i].setEditable(false);
-//            amount[i].
             amount[i].setBounds(menu_btn[i].getX() + 80, menu_btn[i].getY() + 220 , 40, 20);
             
             
@@ -121,26 +117,28 @@ public class KoreanMenu extends JPanel {
         }
         add(foodPanel);
         
-//		JTextArea ta = new JTextArea();
-//		ta.setBackground(new Color(245,242,237));
-//		ta.setBounds(811, 180, 439, 450);
-//		ta.setText("   상품명        단가        수량        합계\n\n");
-//		ta.setEditable(false);
-//		ta.getText();
-//		add(ta);
-		
+        
+        
+		JTextArea ta = new JTextArea();
+		ta.setBackground(new Color(245,242,237));
+		ta.setBounds(811, 180, 439, 450);
+		ta.setText("   상품명        단가        수량        합계\n\n");
+		ta.setEditable(false);
+		ta.getText();
+		add(ta);
+        
+      
 		
 		
         for (int i = 0; i < k_menu.length; i++) {
             int j = i;
  
-            // 
             menu_btn[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     minus[j].setEnabled(true);
                     plus[j].setEnabled(true);
-                    menu_btn[j].setEnabled(false);
+                    menu_btn[j].setEnabled(false); //true로 하는게 더 보기 좋지않나
                     ok[j].setEnabled(true);
  
                     count = 0;
@@ -182,6 +180,7 @@ public class KoreanMenu extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) { 
                     show = menu_btn[j].getActionCommand();
+                    
                     ta.append("   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
                             + "원" + "\n");
                     ok[j].setEnabled(false);
@@ -195,17 +194,10 @@ public class KoreanMenu extends JPanel {
         }
         
         
-        
-        
-        
         Button order = new Button("주문");
-        
         Button reset = new Button("초기화");
-        
         Button close = new Button("닫기");
         
-        
- 
         order.setBounds(789,647,97,23);
         reset.setBounds(943,647,97,23);
         close.setBounds(1111,647,97,23);
@@ -214,6 +206,8 @@ public class KoreanMenu extends JPanel {
         add(order);
         add(reset);
         add(close);
+        
+        
         
         // order 주문버튼
         order.addActionListener(new ActionListener() {
@@ -227,7 +221,6 @@ public class KoreanMenu extends JPanel {
                     minus[i].setEnabled(false);
                     plus[i].setEnabled(false);
                     amount[i].setText("0");
-                    
                     ta.setText("   상품명        단가        수량        합계\n\n");
  
                 }
@@ -235,6 +228,8 @@ public class KoreanMenu extends JPanel {
         });
         
  
+        
+        
         // reset 초기화 버튼
         reset.addActionListener(new ActionListener() {
  
@@ -254,21 +249,6 @@ public class KoreanMenu extends JPanel {
         });
  
  
-        //close 닫기버튼
-        
-//        close.addActionListener(new ActionListener() {
-//            
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//               dispose();
-//            }
-//        });
-        
-        
-        
-        
-        
-
 		
 		
 		setVisible(true);
