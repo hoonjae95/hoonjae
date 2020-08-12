@@ -32,7 +32,7 @@ public class FoodMain extends JFrame{
       
 
       
-      ImageIcon khlogo = new ImageIcon("image/khlogo2.png");
+      ImageIcon khlogo = new ImageIcon("image/khlogo2-2.png");
       JLabel lb_khlogo = new JLabel(khlogo);
       lb_khlogo.setBounds(14,12,452,180);
       getContentPane().add(lb_khlogo);

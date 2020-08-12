@@ -2,6 +2,7 @@ package com.kh.project.mini.view;
 
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Label;
 import java.awt.TextArea;
 import java.awt.TextField;
@@ -40,7 +41,7 @@ public class KoreanMenu extends JPanel {
 		
 		
 		
-	      String k_menu[] = { "µÈÀåÂî°³", "Á¦À°ººÀ½", "µÎ·çÄ¡±â", "µ¹¼Üºñºö¹ä", "¾çÇ¬ºñºö¹ä", "±èÄ¡ººÀ½¹ä"};
+	      String k_menu[] = { "µÈÀåÂî°³", "±èÄ¡Âî°³", "Á¦À°ººÀ½", "µ¹¼Üºñºö¹ä", "ÇØ¹°¼öÁ¦ºñ", "±èÄ¡ººÀ½¹ä"};
 	      JButton menu_btn[] = new JButton[k_menu.length];
 	      int price[] = { 5000, 5500, 6000, 6500, 7000, 7500};
 	      
@@ -49,6 +50,7 @@ public class KoreanMenu extends JPanel {
         Button plus[] = new Button[k_menu.length];
         JButton ok[] = new JButton[k_menu.length];
         Label l[] = new Label[k_menu.length];
+        Label foodname[] = new Label[k_menu.length];
         
         ImageIcon icon[] = new ImageIcon[k_menu.length];
         for (int i = 0; i < k_menu.length; i++) {
@@ -56,12 +58,12 @@ public class KoreanMenu extends JPanel {
             
             menu_btn[i] = new JButton(k_menu[i]);
             if (i < 3) {
-                menu_btn[i].setBounds(20 + (i * 224), 10, 202, 187);
+                menu_btn[i].setBounds(20 + (i * 224), 10, 190, 187);
             } else {
-                menu_btn[i].setBounds(20 + ((i-3) * 224), 285, 202, 187);
+                menu_btn[i].setBounds(20 + ((i-3) * 224), 285, 190, 187);
             }
-//            icon[i] = new ImageIcon("image/" + i + ".png");
-//            bt[i].setIcon(icon[i]);
+            icon[i] = new ImageIcon("foodpicture/k_" + i + ".jpg");
+            menu_btn[i].setIcon(icon[i]);
             
 
       
@@ -85,11 +87,21 @@ public class KoreanMenu extends JPanel {
             plus[i] = new Button("+");
             plus[i].setBounds(menu_btn[i].getX() + 125, menu_btn[i].getY()+220, 20, 20);
             plus[i].setEnabled(false);
+            
+            
+            //'ÀÌ¸§'¶óº§
+            foodname[i] = new Label(k_menu[i] + "");
+            foodname[i].setBounds(menu_btn[i].getX() + 5, menu_btn[i].getY()+190 , 110, 25);
+            foodname[i].setBackground(Color.lightGray);
+            foodname[i].setFont(new Font("Aharoni ±½°Ô", Font.BOLD, 18));
+            
+            
  
             // °¡°Ý
             l[i] = new Label(price[i] + "¿ø");
-            l[i].setBounds(menu_btn[i].getX() + 75, menu_btn[i].getY()+194 , 50, 20);
+            l[i].setBounds(menu_btn[i].getX() + 110, menu_btn[i].getY()+190 , 65, 25);
             l[i].setBackground(Color.lightGray);
+            l[i].setFont(new Font("Aharoni ±½°Ô", Font.BOLD, 18));
  
             // È®ÀÎ ¹öÆ°
             ok[i] = new JButton("È®ÀÎ");
@@ -105,6 +117,7 @@ public class KoreanMenu extends JPanel {
             foodPanel.add(l[i]);
             foodPanel.add(ok[i]);
             foodPanel.add(menu_btn[i]);
+            foodPanel.add(foodname[i]);
         }
         add(foodPanel);
         

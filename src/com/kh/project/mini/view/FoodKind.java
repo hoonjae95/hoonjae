@@ -32,9 +32,9 @@ class FoodKind extends JFrame implements MouseListener{
 		
 		
 			
-		ImageIcon khlogo = new ImageIcon("image/khlogo3.png");
+		ImageIcon khlogo = new ImageIcon("image/khlogo3-1.png");
 		JLabel lb_khlogo = new JLabel(khlogo);
-		lb_khlogo.setBounds(0,11,800,100);
+		lb_khlogo.setBounds(0,9,800,100);
 		getContentPane().add(lb_khlogo);
 		
 		

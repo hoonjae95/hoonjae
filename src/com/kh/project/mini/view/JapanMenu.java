@@ -2,6 +2,7 @@ package com.kh.project.mini.view;
 
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Label;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
@@ -34,7 +35,7 @@ public class JapanMenu extends JPanel{
 	
 	
 	
-      String j_menu[] = { "스시", "스시", "스시", "스시", "스시", "스시"};
+      String j_menu[] = { "나가사키짬뽕", "   라   멘", "   초   밥 ", "   우   동", "타코야끼", "   모   름"};
       JButton menu_btn[] = new JButton[j_menu.length];
       int price[] = { 5000, 5500, 6000, 6500, 7000, 7500};
       
@@ -43,6 +44,7 @@ public class JapanMenu extends JPanel{
     Button plus[] = new Button[j_menu.length];
     JButton ok[] = new JButton[j_menu.length];
     Label l[] = new Label[j_menu.length];
+    Label foodname[] = new Label[j_menu.length];
     
     ImageIcon icon[] = new ImageIcon[j_menu.length];
     for (int i = 0; i < j_menu.length; i++) {
@@ -50,12 +52,12 @@ public class JapanMenu extends JPanel{
         
         menu_btn[i] = new JButton(j_menu[i]);
         if (i < 3) {
-            menu_btn[i].setBounds(20 + (i * 224), 10, 202, 187);
+            menu_btn[i].setBounds(20 + (i * 224), 10, 190, 187);
         } else {
-            menu_btn[i].setBounds(20 + ((i-3) * 224), 285, 202, 187);
+            menu_btn[i].setBounds(20 + ((i-3) * 224), 285, 190, 187);
         }
-//        icon[i] = new ImageIcon("image/" + i + ".png");
-//        bt[i].setIcon(icon[i]);
+        icon[i] = new ImageIcon("foodpicture/j_" + i + ".png");
+        menu_btn[i].setIcon(icon[i]);
         
 
   
@@ -80,10 +82,19 @@ public class JapanMenu extends JPanel{
         plus[i].setBounds(menu_btn[i].getX() + 125, menu_btn[i].getY()+220, 20, 20);
         plus[i].setEnabled(false);
 
+        //'이름'라벨
+        foodname[i] = new Label(j_menu[i] + "");
+        foodname[i].setBounds(menu_btn[i].getX() + 0, menu_btn[i].getY()+190 , 120, 25);
+        foodname[i].setBackground(Color.lightGray);
+        foodname[i].setFont(new Font("Aharoni 굵게", Font.BOLD, 18));
+        
+        
+
         // 가격
         l[i] = new Label(price[i] + "원");
-        l[i].setBounds(menu_btn[i].getX() + 75, menu_btn[i].getY()+194 , 50, 20);
+        l[i].setBounds(menu_btn[i].getX() + 120, menu_btn[i].getY()+190 , 70, 25);
         l[i].setBackground(Color.lightGray);
+        l[i].setFont(new Font("Aharoni 굵게", Font.BOLD, 18));
 
         // 확인 버튼
         ok[i] = new JButton("확인");
@@ -99,6 +110,7 @@ public class JapanMenu extends JPanel{
         foodPanel.add(l[i]);
         foodPanel.add(ok[i]);
         foodPanel.add(menu_btn[i]);
+        foodPanel.add(foodname[i]);
     }
     
     add(foodPanel);
