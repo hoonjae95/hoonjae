@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-class JapanMenu extends JPanel{
+public class JapanMenu extends JPanel{
 	int count = 0;
 	String show = "";
 	
@@ -101,6 +101,8 @@ class JapanMenu extends JPanel{
         foodPanel.add(menu_btn[i]);
     }
     
+    add(foodPanel);
+    
     
     
 	JTextArea ta = new JTextArea();
@@ -108,6 +110,7 @@ class JapanMenu extends JPanel{
 	ta.setBounds(811, 180, 439, 450);
 	ta.setText("   상품명        단가        수량        합계\n\n");
 	ta.setEditable(false);
+	ta.getSelectedText();
 	add(ta);
 	
 	
@@ -233,7 +236,7 @@ class JapanMenu extends JPanel{
     
     
     
-    add(foodPanel);
+    
     setVisible(true);
     
 		

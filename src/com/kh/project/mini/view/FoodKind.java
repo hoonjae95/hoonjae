@@ -28,7 +28,7 @@ class FoodKind extends JFrame implements MouseListener{
 		JapanMenu japanmenu = new JapanMenu();
 		ChinaMenu chinamenu = new ChinaMenu();
 		WestMenu westmenu = new WestMenu();
-//		Result result = new Result();
+		Result result = new Result();
 		
 		
 			
@@ -58,12 +58,10 @@ class FoodKind extends JFrame implements MouseListener{
 		
 		
 		kfood_btn.addActionListener(new ActionListener() { 
-			
 			@Override
 			public void actionPerformed(ActionEvent e) { 
-				
 				getContentPane().add(koreanmenu);
-//				getContentPane().add(result);
+				getContentPane().add(result);
 				
 				remove(lb_menusel);
 				remove(chinamenu);
@@ -91,7 +89,8 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(japanmenu);
-//				getContentPane().add(result);
+				getContentPane().add(result);
+				
 				
 				remove(lb_menusel);
 				remove(koreanmenu);
@@ -117,7 +116,7 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(chinamenu);
-//				getContentPane().add(result);
+				getContentPane().add(result);
 				
 				remove(lb_menusel);
 				remove(koreanmenu);
@@ -144,7 +143,8 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().add(westmenu);
-//				getContentPane().add(result);
+				
+				getContentPane().add(result);
 				
 				remove(lb_menusel);
 				remove(koreanmenu);

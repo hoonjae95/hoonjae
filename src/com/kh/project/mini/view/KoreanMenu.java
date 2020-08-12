@@ -22,6 +22,7 @@ public class KoreanMenu extends JPanel {
 	
 	int count = 0;
 	String show = "";
+	public JTextArea ta = new JTextArea();
 	
 	public KoreanMenu() {
 		setLayout(null);
@@ -107,12 +108,13 @@ public class KoreanMenu extends JPanel {
         }
         add(foodPanel);
         
-		JTextArea ta = new JTextArea();
-		ta.setBackground(new Color(245,242,237));
-		ta.setBounds(811, 180, 439, 450);
-		ta.setText("   상품명        단가        수량        합계\n\n");
-		ta.setEditable(false);
-		add(ta);
+//		JTextArea ta = new JTextArea();
+//		ta.setBackground(new Color(245,242,237));
+//		ta.setBounds(811, 180, 439, 450);
+//		ta.setText("   상품명        단가        수량        합계\n\n");
+//		ta.setEditable(false);
+//		ta.getText();
+//		add(ta);
 		
 		
 		
@@ -231,6 +233,7 @@ public class KoreanMenu extends JPanel {
                     minus[i].setEnabled(false);
                     plus[i].setEnabled(false);
                     amount[i].setText("0");
+                    
                     ta.setText("   상품명        단가        수량        합계\n\n");
  
                 }
