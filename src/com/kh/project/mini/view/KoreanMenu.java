@@ -107,7 +107,6 @@ public class KoreanMenu extends JPanel {
         }
         add(foodPanel);
         
-        
 		JTextArea ta = new JTextArea();
 		ta.setBackground(new Color(245,242,237));
 		ta.setBounds(811, 180, 439, 450);

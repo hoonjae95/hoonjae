@@ -14,6 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 public class ChinaMenu extends JPanel{
+	
+	int count = 0;
+	String show = "";
 	public ChinaMenu() {
 		setLayout(null);
 		setSize(1300,800);
@@ -97,64 +100,140 @@ public class ChinaMenu extends JPanel{
         foodPanel.add(menu_btn[i]);
     }
     
-    
-    Button order = new Button("주문");
-    
-    Button reset = new Button("초기화");
-    
-    Button close = new Button("닫기");
-    
-    
-
-    order.setBounds(789,647,97,23);
-    reset.setBounds(943,647,97,23);
-    close.setBounds(1111,647,97,23);
-    
-    
-    add(order);
-    add(reset);
-    add(close);
-    
-    // order 주문버튼
-    order.addActionListener(new ActionListener() {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        	JTextArea ta = new JTextArea();
-            JOptionPane.showMessageDialog(null, ta.getText() + " 주문되었습니다. \n이용해주셔서 감사합니다.");
-            for (int i = 0; i < c_menu.length; i++) {
-                menu_btn[i].setEnabled(true);
-                minus[i].setEnabled(false);
-                plus[i].setEnabled(false);
-                amount[i].setText("0");
-                ta.setText("   상품명        단가        수량        합계\n\n");
-
-            }
-        }
-    });
-
-    // reset 초기화 버튼
-    reset.addActionListener(new ActionListener() {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        	JTextArea ta = new JTextArea();
-            for (int i = 0; i < c_menu.length; i++) {
-                menu_btn[i].setEnabled(true);
-                minus[i].setEnabled(false);
-                plus[i].setEnabled(false);
-                amount[i].setText("0");
-                ta.setText("   상품명        단가        수량        합계\n\n");
-
-            }
-        }
-    });
-    
-    
-    
-    
-    
     add(foodPanel);
+    
+    
+	JTextArea ta = new JTextArea();
+	ta.setBackground(new Color(245,242,237));
+	ta.setBounds(811, 180, 439, 450);
+	ta.setText("   상품명        단가        수량        합계\n\n");
+	ta.setEditable(false);
+	add(ta);
+	
+	
+	 for (int i = 0; i < c_menu.length; i++) {
+         int j = i;
+
+         // 
+         menu_btn[i].addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 minus[j].setEnabled(true);
+                 plus[j].setEnabled(true);
+                 menu_btn[j].setEnabled(false);
+                 ok[j].setEnabled(true);
+
+                 count = 0;
+             }
+         });
+
+         // "-" 버튼 이벤트
+         minus[i].addActionListener(new ActionListener() {
+
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 if (count > 0) {
+                     count = count - 1;
+                     amount[j].setText(count + "");
+                     ok[j].setEnabled(true);
+                 } else {
+                     minus[j].setEnabled(false);
+                 }
+             }
+         });
+         
+         // "+" 버튼 이벤트
+         plus[i].addActionListener(new ActionListener() {
+
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 count = count + 1;
+                 amount[j].setText(count + "");
+                 ok[j].setEnabled(true);
+                 if (count > 0) {
+                     minus[j].setEnabled(true);
+                 }
+             }
+         });
+         
+         //확인 버튼 이벤트
+         ok[i].addActionListener(new ActionListener() {
+//         	JTextArea ta = new Result().getTa();
+             @Override
+             public void actionPerformed(ActionEvent e) { 
+                 show = menu_btn[j].getActionCommand();
+                 ta.append("   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
+                         + "원" + "\n");
+                 ok[j].setEnabled(false);
+             }
+         });
+         
+         
+         
+         
+
+     }
+    
+    
+	 Button order = new Button("주문");
+     
+     Button reset = new Button("초기화");
+     
+     Button close = new Button("닫기");
+     
+     
+
+     order.setBounds(789,647,97,23);
+     reset.setBounds(943,647,97,23);
+     close.setBounds(1111,647,97,23);
+     
+     
+     add(order);
+     add(reset);
+     add(close);
+     
+     // order 주문버튼
+     order.addActionListener(new ActionListener() {
+
+         @Override
+         public void actionPerformed(ActionEvent e) {
+//         	JTextArea ta = new Result().getTa();
+             JOptionPane.showMessageDialog(null, ta.getText() + " 주문되었습니다. \n이용해주셔서 감사합니다.");
+             for (int i = 0; i < c_menu.length; i++) {
+                 menu_btn[i].setEnabled(true);
+                 minus[i].setEnabled(false);
+                 plus[i].setEnabled(false);
+                 amount[i].setText("0");
+                 
+                 ta.setText("   상품명        단가        수량        합계\n\n");
+
+             }
+         }
+     });
+     
+
+     // reset 초기화 버튼
+     reset.addActionListener(new ActionListener() {
+
+         @Override
+         public void actionPerformed(ActionEvent e) {
+//         	JTextArea ta = new Result().getTa();
+             for (int i = 0; i < c_menu.length; i++) {
+                 menu_btn[i].setEnabled(true);
+                 minus[i].setEnabled(false);
+                 plus[i].setEnabled(false);
+                 amount[i].setText("0");
+                 ta.setText("   상품명        단가        수량        합계\n\n");
+
+             }
+         }
+     });
+    
+    
+    
+    
+    
+    
 		
 		setVisible(true);
 		
