@@ -15,12 +15,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-public class JapanMenu extends JPanel{
+public class Member_JapanMenu extends JPanel{
 	int count = 0;
 	String show = "";
 	
 	
-	public JapanMenu() {
+	public Member_JapanMenu() {
 		
 		setLayout(null);
 		setSize(1300,800);
@@ -44,9 +44,9 @@ public class JapanMenu extends JPanel{
 	
 	
 	
-      String j_menu[] = { "³ª°¡»çÅ°Â«»Í", "   ¶ó   ¸à", "   ÃÊ   ¹ä ", "   ¿ì   µ¿", "Å¸ÄÚ¾ß³¢", "   ¸ð   ¸§"};
+      String j_menu[] = { "³ª°¡»çÅ°Â«»Í", "   ¶ó   ¸à", "   ÃÊ   ¹ä ", "   ¿ì   µ¿", "Å¸ÄÚ¾ß³¢", "   ±Ô   µ¿"};
       JButton menu_btn[] = new JButton[j_menu.length];
-      int price[] = { 7000, 7000, 10000, 5000, 5000, 7000};
+      int price[] = { 6000, 6000, 9000, 4000, 4000, 6000};
       
     TextField amount[] = new TextField[j_menu.length];
    Button minus[] = new Button[j_menu.length];

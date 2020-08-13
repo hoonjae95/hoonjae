@@ -43,7 +43,7 @@ public class ChinaMenu extends JPanel{
 	
       String c_menu[] = { "     짜장면", "    짬    뽕", "      탕수육", "      깐풍기", "      잡채밥", "    마파두부"};
       JButton menu_btn[] = new JButton[c_menu.length];
-      int price[] = { 5000, 5500, 6000, 6500, 7000, 7500};
+      int price[] = { 5000, 6000, 17000, 23000, 8000, 8000};
       
       TextField amount[] = new TextField[c_menu.length];
       Button minus[] = new Button[c_menu.length];
@@ -179,8 +179,9 @@ public class ChinaMenu extends JPanel{
              public void actionPerformed(ActionEvent e) { 
                  show = menu_btn[j].getActionCommand();
                  
-                 ta.append("   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
-                         + "원" + "\n");
+                 ta.setText(rs.getTa().getText()+"   " + show + "       " + 
+                         price[j] + "        " + count + "         " + price[j] * count
+                                 + "원" + "        "  + "\n");
                  rs.setTa(ta);
                  ok[j].setEnabled(false);
              }
@@ -239,7 +240,7 @@ public class ChinaMenu extends JPanel{
                  minus[i].setEnabled(false);
                  plus[i].setEnabled(false);
                  amount[i].setText("0");
-//                 ta.setText("   상품명        단가        수량        합계\n\n");
+                 ta.setText("   상품명        단가        수량        합계\n\n");
 
              }
          }

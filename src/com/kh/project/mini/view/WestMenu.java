@@ -44,7 +44,7 @@ public class WestMenu extends JPanel{
 	
       String w_menu[] = { "   스테이크", "     치폴레", "크림스파게티", "   타   코", "     햄버거", "   피   자"};
       JButton menu_btn[] = new JButton[w_menu.length];
-      int price[] = { 5000, 5500, 6000, 6500, 7000, 7500};
+      int price[] = { 14000, 12000, 7000, 7000, 7000, 12000};
       
       TextField amount[] = new TextField[w_menu.length];
       Button minus[] = new Button[w_menu.length];
@@ -177,8 +177,10 @@ public class WestMenu extends JPanel{
              @Override
              public void actionPerformed(ActionEvent e) { 
                  show = menu_btn[j].getActionCommand();
-                 ta.append("   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
-                         + "원" + "\n");
+                 
+                 ta.setText(rs.getTa().getText()+"   " + show + "       " + 
+                         price[j] + "        " + count + "         " + price[j] * count
+                                 + "원" + "        " + "\n");
                  rs.setTa(ta);
                  ok[j].setEnabled(false);
              }
@@ -224,7 +226,6 @@ public class WestMenu extends JPanel{
 
      // reset 초기화 버튼
      reset.addActionListener(new ActionListener() {
-
          @Override
          public void actionPerformed(ActionEvent e) {
 //         	JTextArea ta = new Result().getTa();
@@ -234,7 +235,6 @@ public class WestMenu extends JPanel{
                  plus[i].setEnabled(false);
                  amount[i].setText("0");
                  ta.setText("   상품명        단가        수량        합계\n\n");
-
              }
          }
      });

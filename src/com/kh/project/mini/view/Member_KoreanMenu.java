@@ -20,12 +20,12 @@ import javax.swing.JTextArea;
 
 
 
-public class KoreanMenu extends JPanel {
+public class Member_KoreanMenu extends JPanel {
 	
 	int count = 0;
 	String show = "";
 	
-	public KoreanMenu() {
+	public Member_KoreanMenu() {
 		setLayout(null);
 		setSize(1300,800);
 		setBackground(new Color(228,247,186));
@@ -48,8 +48,7 @@ public class KoreanMenu extends JPanel {
 		
 		String k_menu[] = { "µÈÀåÂî°³", "±èÄ¡Âî°³", "Á¦À°ººÀ½", "µ¹¼Üºñºö¹ä", "ÇØ¹°¼öÁ¦ºñ", "±èÄ¡ººÀ½¹ä"};
 		JButton menu_btn[] = new JButton[k_menu.length];
-		int price[] = { 6000, 6000, 7000, 6000, 6000, 6000};
-		
+		int price[] = { 5000, 5000, 6000, 5000, 5000, 5000};
 	      
         TextField amount[] = new TextField[k_menu.length];
         Button minus[] = new Button[k_menu.length];
@@ -87,7 +86,7 @@ public class KoreanMenu extends JPanel {
  
 
             
-        // "+" ¹öÆ°
+            // "+" ¹öÆ°
         plus[i] = new Button("+");
         plus[i].setBounds(menu_btn[i].getX() + 125, menu_btn[i].getY()+220, 20, 20);
         plus[i].setEnabled(false);
@@ -139,7 +138,6 @@ public class KoreanMenu extends JPanel {
 		
         for (int i = 0; i < k_menu.length; i++) {
             int j = i;
-            int all_price = price[j] * count;
  
             menu_btn[i].addActionListener(new ActionListener() {
                 @Override
@@ -199,9 +197,8 @@ public class KoreanMenu extends JPanel {
                 public void actionPerformed(ActionEvent e) { 
                     show = menu_btn[j].getActionCommand();
                     
-                    ta.setText(rs.getTa().getText()+"   " + show + "       " + 
-                    price[j] + "        " + count + "         " + price[j] * count
-                            + "¿ø" + "        " +  "\n");
+                    ta.setText(rs.getTa().getText()+"   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
+                            + "¿ø" + "\n");
                  rs.setTa(ta);
                     ok[j].setEnabled(false);
                 }
@@ -209,7 +206,7 @@ public class KoreanMenu extends JPanel {
             
         }
         
-        //int all_price = price[j] * count;
+        
         
         
         

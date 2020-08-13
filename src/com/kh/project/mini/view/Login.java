@@ -2,6 +2,8 @@ package com.kh.project.mini.view;
 
 
 
+
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -21,9 +23,7 @@ import javax.swing.JTextField;
 
 public class Login {
    JFrame main = new JFrame("KH FoodCourt 로그인 / 회원가입");
-   JPanel title = new JPanel();
-   JPanel login = new JPanel();
-   JPanel button = new JPanel();
+   
    
    //join 요소들
    JPanel joinPanel = new JPanel();
@@ -34,50 +34,69 @@ public class Login {
    String newPw = "";
    
    public Login() {
-      main.setLayout(new BorderLayout());
-      main.getContentPane().setBackground(Color.BLACK);
-      JLabel titleLabel = new JLabel("ddd");
-      titleLabel.setFont(new Font("Serif", Font.BOLD, 30));
-      titleLabel.setForeground(Color.red);
-      titleLabel.setHorizontalAlignment(JLabel.CENTER);
+
       
-      JTextField id = new JTextField(15);
-      JPanel idPanel = new JPanel();
-      JLabel idLabel = new JLabel("I D");
+      main.setLayout(null);
+      main.setSize(450,200);
+
+      
+      
+      JLabel idLabel = new JLabel("ID");
+      idLabel.setBounds(107, 29, 21, 15);
       idLabel.setFont(new Font("Serif", Font.BOLD, 11));
-      idLabel.setHorizontalAlignment(JLabel.CENTER);
-      idPanel.add(idLabel);
-      idPanel.add(id);
-      login.add(idPanel);
       
-      JPasswordField pass = new JPasswordField(15);
-      JPanel passPanel = new JPanel();
-      JLabel passLabel = new JLabel("PASSWORD");
+      
+      JTextField id = new JTextField(0);
+      id.setBounds(156, 26, 129, 21);
+      id.setColumns(10);
+
+      JLabel passLabel = new JLabel("PS");
+      passLabel.setBounds(107, 60, 21, 15);
       passLabel.setFont(new Font("Serif", Font.BOLD, 11));
-      passLabel.setHorizontalAlignment(JLabel.CENTER);
-      passPanel.add(passLabel);
-      passPanel.add(pass);
-      login.add(passPanel);
+      
+      JPasswordField pass = new JPasswordField(0);
+      pass.setColumns(10);
+      pass.setBounds(156, 57, 129, 21);
+     
+      
+      
+     //수정
+      
       
       JButton btn1 = new JButton("로그인");
-      button.add(btn1);
+      btn1.setBounds(317, 25, 83, 53);
+     
       
       JButton btn2 = new JButton("회원가입");
-      button.add(btn2);
-      
+      btn2.setBounds(95, 110, 97, 23);
+    
       JButton btn3 = new JButton("취소");
+      btn3.setBounds(219, 110, 97, 23);
+      
+      main.add(btn3);
+      main.add(btn2);
+     main.add(btn1);
+      main.add(id);
+      main.add(pass);
+      main.add(idLabel);
+      main.add(id);
+      main.add(passLabel);
+      
       btn3.addActionListener(new ActionListener() {
       
-      @Override
-      public void actionPerformed(ActionEvent e) {
-         main.dispose();
-         
-      }
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            main.dispose();
+            
+         }
    });
-      button.add(btn3);
       
       
       
+      
+      main.setVisible(true);
+      main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      main.setLocationRelativeTo(null);
       
       
       //로그인 액션
@@ -93,14 +112,14 @@ public class Login {
             }            
             if(idd.equals("user01") && pww.equals("pass01")) {
                JOptionPane.showMessageDialog(null, "user01님 환영합니다!", "2", JOptionPane.DEFAULT_OPTION);
-               new FoodKind();  
+               new Member_FoodKind();  
                main.dispose();
                
                return;
             }           
             if(id.getText().equals(newId) && pass.getText().equals(newPw)) {
                JOptionPane.showMessageDialog(null, t2.getText()+"님 환영합니다!", "2", JOptionPane.DEFAULT_OPTION);
-               new FoodKind();  
+               new Member_FoodKind();  
                main.dispose();
                return;
             }
@@ -121,14 +140,11 @@ public class Login {
       }        
       });
             
-      main.add(titleLabel,BorderLayout.NORTH);
-      main.add(login,BorderLayout.CENTER);
-      main.add(button,BorderLayout.SOUTH);
+//      main.add(titleLabel,BorderLayout.NORTH);
+//      main.add(login,BorderLayout.CENTER);
+//      main.add(button,BorderLayout.SOUTH);
       
-      main.setSize(450,200);
-      main.setVisible(true);
-      main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      main.setLocationRelativeTo(null);  
+       
    }
    
    class JoinFrame extends JFrame {   
@@ -216,10 +232,11 @@ public class Login {
          btn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               t1.setText("");
-               t2.setText("");
-               t3.setText("");
-               t4.setText("");
+//               t1.setText("");
+//               t2.setText("");
+//               t3.setText("");
+//               t4.setText("");
+            	dispose();
             }
             
          });
