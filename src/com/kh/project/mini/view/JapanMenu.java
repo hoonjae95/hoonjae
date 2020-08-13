@@ -26,6 +26,8 @@ public class JapanMenu extends JPanel{
 		setSize(1300,800);
 		setBackground(new Color(228,247,186));
 		
+		
+		
 
 		JPanel foodPanel = new JPanel(); // 공통패널
       foodPanel.setBounds(12, 172, 713, 560);
@@ -123,12 +125,8 @@ public class JapanMenu extends JPanel{
     
     
     
-//	JTextArea ta = new JTextArea();
-//	ta.setBackground(new Color(245,242,237));
-//	ta.setBounds(811, 180, 439, 450);
-//	ta.setText("   상품명        단가        수량        합계\n\n");
-//	ta.setEditable(false);
-//	ta.getSelectedText();
+    
+    
     Result rs=new Result().getInstance();
     JTextArea ta=rs.getTa();
 	add(ta);
@@ -186,6 +184,7 @@ public class JapanMenu extends JPanel{
              @Override
              public void actionPerformed(ActionEvent e) { 
                  show = menu_btn[j].getActionCommand();
+                 
                  ta.setText(rs.getTa().getText()+"   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
                          + "원" + "\n");
               rs.setTa(ta);

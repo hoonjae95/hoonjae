@@ -9,7 +9,6 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -31,7 +30,7 @@ public class KoreanMenu extends JPanel {
 		setSize(1300,800);
 		setBackground(new Color(228,247,186));
 		
-	
+		
 		
 		JPanel foodPanel = new JPanel(); // 공통패널
 		foodPanel.setBounds(12, 172, 713, 560);
@@ -201,6 +200,12 @@ public class KoreanMenu extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) { 
                     show = menu_btn[j].getActionCommand();
+                    
+                    
+                    
+
+                    
+                    
                     
                     ta.setText(rs.getTa().getText()+"   " + show + "       " + 
                     price[j] + "        " + count + "         " + price[j] * count
