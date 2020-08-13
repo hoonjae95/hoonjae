@@ -33,50 +33,50 @@ public class FoodMain extends JFrame{
       //첫번째 메인프레임 타이틀 로고
       ImageIcon khlogo = new ImageIcon("image/khlogo2-2.png");
       JLabel lb_khlogo = new JLabel(khlogo);
-      lb_khlogo.setBounds(14,30,452,180);
+      lb_khlogo.setBounds(14,12,452,180);
       getContentPane().add(lb_khlogo);
       
       
       
-      
-      JButton eat_btn = new JButton(); 
+      //회원 버튼
+      JButton memner_btn = new JButton(); 
       ImageIcon eating = new ImageIcon("image/member.png");
-      eat_btn.setIcon(eating);
-      eat_btn.setContentAreaFilled(false);
-      eat_btn.setBorderPainted(false);
+      memner_btn.setIcon(eating);
+      memner_btn.setContentAreaFilled(false);
+      memner_btn.setBorderPainted(false);
       
-      eat_btn.addActionListener(new ActionListener() { 
+      memner_btn.addActionListener(new ActionListener() { 
          public void actionPerformed(ActionEvent arg0) { 
             new Login();
             revalidate(); // 누르면 다음 그림으로 넘어가게함
             repaint(); // 안쓰여도됨
          } 
       }); 
-      eat_btn.setBounds(31, 274, 210, 350); //위치조정
-      eat_btn.setBackground(Color.white);
-      getContentPane().add(eat_btn);
+      memner_btn.setBounds(31, 274, 210,350); //위치조정
+      memner_btn.setBackground(Color.white);
+      getContentPane().add(memner_btn);
       
       
       
-      //비회원주문 버튼
-      JButton takeOut_btn = new JButton(); 
+      
+      //비회원 버튼
+      JButton nonmemer_btn = new JButton(); 
       ImageIcon takeout = new ImageIcon("image/nonmember.png");
-        takeOut_btn.setIcon(takeout);
-        takeOut_btn.setContentAreaFilled(false);
-        takeOut_btn.setBorderPainted(false);
-        takeOut_btn.addActionListener(new ActionListener() { 
+      nonmemer_btn.setIcon(takeout);
+      nonmemer_btn.setContentAreaFilled(false);
+      nonmemer_btn.setBorderPainted(false);
+      nonmemer_btn.addActionListener(new ActionListener() { 
          public void actionPerformed(ActionEvent arg0) { 
             new FoodKind();
             revalidate(); // 누르면 다음 그림으로 넘어가게함
             repaint(); // 안쓰여도됨
          } 
       }); 
-        takeOut_btn.setBounds(245, 274, 210, 350);
+      nonmemer_btn.setBounds(245, 274, 210, 350);
         
-      getContentPane().add(takeOut_btn);
+      getContentPane().add(nonmemer_btn);
       
-      
-      
+
       
       
       getContentPane().setBackground(new Color(217,229,255));

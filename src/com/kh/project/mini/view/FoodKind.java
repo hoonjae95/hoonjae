@@ -21,19 +21,19 @@ class FoodKind extends JFrame implements MouseListener{
 	private int menucount=0;
 	
 	public FoodKind() {
+		
 		super("나 2번쨰프레임");
 		getContentPane().setLayout(null);
 		setSize(1300,800);
 		getContentPane().setBackground(new Color(228,247,186));
 		
-		
 		KoreanMenu koreanmenu = new KoreanMenu();
 		JapanMenu japanmenu = new JapanMenu();
 		ChinaMenu chinamenu = new ChinaMenu();
 		WestMenu westmenu = new WestMenu();
-		Result result = new Result();
-		
+		Result result = new Result().getInstance();
 	
+			
 		//두번째 프레임 상단 로고
 		ImageIcon khlogo = new ImageIcon("image/khlogo3-1.png");
 		JLabel lb_khlogo = new JLabel(khlogo);
@@ -41,11 +41,13 @@ class FoodKind extends JFrame implements MouseListener{
 		getContentPane().add(lb_khlogo);
 		
 		
-		// 탭 누르기전 설명사진
+		
+		// 탭 누르기전 가운데 설명사진
 		ImageIcon menusel = new ImageIcon("image/menusel.png");
 		JLabel lb_menusel = new JLabel(menusel);
 		lb_menusel.setBounds(45,200,712,500);
 		getContentPane().add(lb_menusel);
+		
 		
 		
 		// 탭 누르기전 식당 이용사항
@@ -54,11 +56,6 @@ class FoodKind extends JFrame implements MouseListener{
 		lb_reference.setBounds(814,29,370,600);
 		getContentPane().add(lb_reference);
 		
-		
-//		// 탭 누르면 주문 현황
-//		ImageIcon orderlist = new ImageIcon("image/orderlist.png");
-//		JLabel lb_orderlist = new JLabel(orderlist);
-//		lb_orderlist.setBounds(814,29,370,600);
 		
 		
 		
@@ -72,21 +69,25 @@ class FoodKind extends JFrame implements MouseListener{
 		kfood_btn.setBounds(45, 105, 161, 59);
 		getContentPane().add(kfood_btn);
 		
-		
+		JTextArea ta=new JTextArea();
 		
 		kfood_btn.addActionListener(new ActionListener() { 
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(koreanmenu);
-				if(menucount==0) {
-					menucount++;
-					getContentPane().add(result);
-				}
+				
+				ta.setText(result.getTa().getText());
+				getContentPane().add(ta);
+				System.out.println("FoodKind KoreaMenu 생성");
+				System.out.println(result.getTa().getText());
+				
 				remove(lb_reference);
 				remove(lb_menusel);
 				remove(chinamenu);
 				remove(japanmenu);
 				remove(westmenu);
+				
+				
 				
 				revalidate(); // 누르면 다음 그림으로 넘어가게함
 				repaint(); // 안쓰여도됨
@@ -96,8 +97,6 @@ class FoodKind extends JFrame implements MouseListener{
 		
 		
 		
-		
-		//일식버튼
 		JButton jfood_btn = new JButton("일식");
 		jfood_btn.setFont(new Font("Aharoni 굵게", Font.BOLD, 30));
 		jfood_btn.setForeground(Color.WHITE);
@@ -109,10 +108,13 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(japanmenu);
-				if(menucount==0) {
-					menucount++;
-					getContentPane().add(result);
-				} 
+				
+				
+				ta.setText(result.getTa().getText());
+				getContentPane().add(ta);
+				System.out.println("FoodKind JapanMenu 생성");
+				System.out.println(result.getTa().getText());
+				
 				remove(lb_reference);
 				remove(lb_menusel);
 				remove(koreanmenu);
@@ -129,44 +131,6 @@ class FoodKind extends JFrame implements MouseListener{
 		
 		
 		
-		
-		
-		
-		//양식버튼
-		JButton wfood_btn = new JButton("양식");
-		wfood_btn.setFont(new Font("Aharoni 굵게", Font.BOLD, 30));
-		wfood_btn.setForeground(Color.WHITE);
-		wfood_btn.setBounds(391, 105, 161, 59);
-		wfood_btn.setBackground(new Color(166, 166, 166));
-		getContentPane().add(wfood_btn);
-		
-		wfood_btn.addActionListener(new ActionListener() { 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				getContentPane().add(westmenu);
-				
-				if(menucount==0) {
-					menucount++;
-					getContentPane().add(result);
-				} 
-				remove(lb_reference);
-				remove(lb_menusel);
-				remove(koreanmenu);
-				remove(japanmenu);
-				remove(chinamenu);
-				
-				
-				revalidate(); // 누르면 다음 그림으로 넘어가게함
-				repaint(); // 안쓰여도됨
-			} 
-		}); 
-		
-		
-		
-		
-		
-		
-		//중식버튼
 		JButton cfood_btn = new JButton("중식");
 		cfood_btn.setFont(new Font("Aharoni 굵게", Font.BOLD, 30));
 		cfood_btn.setForeground(Color.WHITE);
@@ -179,10 +143,11 @@ class FoodKind extends JFrame implements MouseListener{
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(chinamenu);
 				
-				if(menucount==0) {
-					menucount++;
-					getContentPane().add(result);
-				} 
+				ta.setText(result.getTa().getText());
+				getContentPane().add(ta);
+				System.out.println("FoodKind ChinaMenu 생성 생성");
+				System.out.println(result.getTa().getText());
+				
 				remove(lb_reference);
 				remove(lb_menusel);
 				remove(koreanmenu);
@@ -198,6 +163,48 @@ class FoodKind extends JFrame implements MouseListener{
 		
 		
 		
+		JButton wfood_btn = new JButton("양식");
+		wfood_btn.setFont(new Font("Aharoni 굵게", Font.BOLD, 30));
+		wfood_btn.setForeground(Color.WHITE);
+		wfood_btn.setBounds(391, 105, 161, 59);
+		wfood_btn.setBackground(new Color(166, 166, 166));
+		getContentPane().add(wfood_btn);
+		
+		wfood_btn.addActionListener(new ActionListener() { 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				getContentPane().add(westmenu);
+				
+				ta.setText(result.getTa().getText());
+				getContentPane().add(ta);
+				System.out.println("FoodKind WestMenu 생성");
+				System.out.println(result.getTa().getText());
+				
+				
+				remove(lb_reference);
+				remove(lb_menusel);
+				remove(koreanmenu);
+				remove(japanmenu);
+				remove(chinamenu);
+				
+				
+				revalidate(); // 누르면 다음 그림으로 넘어가게함
+				repaint(); // 안쓰여도됨
+			} 
+		}); 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		kfood_btn.addMouseListener(this);
@@ -208,10 +215,11 @@ class FoodKind extends JFrame implements MouseListener{
 		
 		
 		
-		//닫기버튼누르면 2번째 프레임창만 꺼짐
+//close 닫기버튼
+		
 		Button close = new Button("닫기");
 		close.setBounds(1111,647,97,23);
-		getContentPane().add(close);
+		add(close);
         
         close.addActionListener(new ActionListener() {
             
@@ -226,12 +234,12 @@ class FoodKind extends JFrame implements MouseListener{
 		
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		
+		
+		
+		
 	}
-	
-	
-	
-	
-	
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {

@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -25,10 +26,17 @@ public class WestMenu extends JPanel{
 		setBackground(new Color(228,247,186));
 		
 
-	JPanel foodPanel = new JPanel(); // 공통패널
-    foodPanel.setBounds(12, 172, 713, 560);
-    foodPanel.setLayout(null);
-    foodPanel.setBackground(new Color(228,247,186));
+		JPanel foodPanel = new JPanel(); // 공통패널
+	    foodPanel.setBounds(12, 172, 713, 560);
+	    foodPanel.setLayout(null);
+	    foodPanel.setBackground(new Color(228,247,186));
+	    
+	    
+		// 탭 누르면 주문 현황
+		ImageIcon orderlist = new ImageIcon("image/orderlist.png");
+		JLabel lb_orderlist = new JLabel(orderlist);
+		lb_orderlist.setBounds(860,10,350,174);
+		add(lb_orderlist);
 	
 	
 	
@@ -111,13 +119,12 @@ public class WestMenu extends JPanel{
     add(foodPanel);
     
     
-	JTextArea ta = new JTextArea();
-	ta.setBackground(new Color(245,242,237));
-	ta.setBounds(811, 180, 439, 450);
-	ta.setText("   상품명        단가        수량        합계\n\n");
-	ta.setEditable(false);
+    Result rs=new Result().getInstance();
+    JTextArea ta=rs.getTa();
 	add(ta);
-	
+    
+  
+	System.out.println("WestMenu 생성");
 	
 	 for (int i = 0; i < w_menu.length; i++) {
          int j = i;
@@ -164,14 +171,15 @@ public class WestMenu extends JPanel{
              }
          });
          
+         
          //확인 버튼 이벤트
          ok[i].addActionListener(new ActionListener() {
-//         	JTextArea ta = new Result().getTa();
              @Override
              public void actionPerformed(ActionEvent e) { 
                  show = menu_btn[j].getActionCommand();
                  ta.append("   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
                          + "원" + "\n");
+                 rs.setTa(ta);
                  ok[j].setEnabled(false);
              }
          });
@@ -207,7 +215,6 @@ public class WestMenu extends JPanel{
                  minus[i].setEnabled(false);
                  plus[i].setEnabled(false);
                  amount[i].setText("0");
-                 
                  ta.setText("   상품명        단가        수량        합계\n\n");
 
              }

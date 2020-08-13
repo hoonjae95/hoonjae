@@ -27,26 +27,36 @@ public class JapanMenu extends JPanel{
 		setBackground(new Color(228,247,186));
 		
 
-	JPanel foodPanel = new JPanel(); // 공통패널
-    foodPanel.setBounds(12, 172, 713, 560);
-    foodPanel.setLayout(null);
-    foodPanel.setBackground(new Color(228,247,186));
-    
+		JPanel foodPanel = new JPanel(); // 공통패널
+      foodPanel.setBounds(12, 172, 713, 560);
+      foodPanel.setLayout(null);
+      foodPanel.setBackground(new Color(228,247,186));
+      
+      
+		// 탭 누르면 주문 현황
+		ImageIcon orderlist = new ImageIcon("image/orderlist.png");
+		JLabel lb_orderlist = new JLabel(orderlist);
+		lb_orderlist.setBounds(860,10,350,174);
+		add(lb_orderlist);
+	
+
+
+	
 	
 	
       String j_menu[] = { "나가사키짬뽕", "   라   멘", "   초   밥 ", "   우   동", "타코야끼", "   모   름"};
       JButton menu_btn[] = new JButton[j_menu.length];
       int price[] = { 5000, 5500, 6000, 6500, 7000, 7500};
-      TextField amount[] = new TextField[j_menu.length];
-      Button minus[] = new Button[j_menu.length];
-      Button plus[] = new Button[j_menu.length];
-      JButton ok[] = new JButton[j_menu.length];
-      Label l[] = new Label[j_menu.length];
-      Label foodname[] = new Label[j_menu.length];
-      ImageIcon icon[] = new ImageIcon[j_menu.length];
       
-      
-      for (int i = 0; i < j_menu.length; i++) {
+    TextField amount[] = new TextField[j_menu.length];
+   Button minus[] = new Button[j_menu.length];
+    Button plus[] = new Button[j_menu.length];
+    JButton ok[] = new JButton[j_menu.length];
+    Label l[] = new Label[j_menu.length];
+    Label foodname[] = new Label[j_menu.length];
+    
+    ImageIcon icon[] = new ImageIcon[j_menu.length];
+    for (int i = 0; i < j_menu.length; i++) {
         
         
         menu_btn[i] = new JButton(j_menu[i]);
@@ -61,7 +71,7 @@ public class JapanMenu extends JPanel{
 
   
 
-//         수량 부분
+        //수량 부분
         amount[i] = new TextField("0");
         amount[i].setBackground(Color.white);
         amount[i].setEditable(false);
@@ -87,7 +97,6 @@ public class JapanMenu extends JPanel{
         foodname[i].setFont(new Font("Aharoni 굵게", Font.BOLD, 18));
         
         
-
         // 가격
         l[i] = new Label(price[i] + "원");
         l[i].setBounds(menu_btn[i].getX() + 120, menu_btn[i].getY()+190 , 70, 25);
@@ -98,7 +107,6 @@ public class JapanMenu extends JPanel{
         ok[i] = new JButton("확인");
         ok[i].setBounds(menu_btn[i].getX() + 50, menu_btn[i].getY()+215 + 30, 100, 20);
         ok[i].setEnabled(false);
-     
      
         
         
@@ -115,14 +123,17 @@ public class JapanMenu extends JPanel{
     
     
     
-	JTextArea ta = new JTextArea();
-	ta.setBackground(new Color(245,242,237));
-	ta.setBounds(811, 180, 439, 450);
-	ta.setText("   상품명        단가        수량        합계\n\n");
-	ta.setEditable(false);
-	ta.getSelectedText();
+//	JTextArea ta = new JTextArea();
+//	ta.setBackground(new Color(245,242,237));
+//	ta.setBounds(811, 180, 439, 450);
+//	ta.setText("   상품명        단가        수량        합계\n\n");
+//	ta.setEditable(false);
+//	ta.getSelectedText();
+    Result rs=new Result().getInstance();
+    JTextArea ta=rs.getTa();
 	add(ta);
 	
+	System.out.println("JapanMenu 생성");
 	
 	 for (int i = 0; i < j_menu.length; i++) {
          int j = i;
@@ -175,8 +186,10 @@ public class JapanMenu extends JPanel{
              @Override
              public void actionPerformed(ActionEvent e) { 
                  show = menu_btn[j].getActionCommand();
-                 ta.append("   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
+                 ta.setText(rs.getTa().getText()+"   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
                          + "원" + "\n");
+              rs.setTa(ta);
+             
                  ok[j].setEnabled(false);
              }
          });
@@ -188,6 +201,7 @@ public class JapanMenu extends JPanel{
     Button order = new Button("주문");
     Button reset = new Button("초기화");
     Button close = new Button("닫기");
+    
     
 
     order.setBounds(789,647,97,23);
@@ -211,9 +225,7 @@ public class JapanMenu extends JPanel{
                 minus[i].setEnabled(false);
                 plus[i].setEnabled(false);
                 amount[i].setText("0");
-                
                 ta.setText("   상품명        단가        수량        합계\n\n");
-
             }
         }
     });
@@ -231,10 +243,14 @@ public class JapanMenu extends JPanel{
                 plus[i].setEnabled(false);
                 amount[i].setText("0");
                 ta.setText("   상품명        단가        수량        합계\n\n");
-
             }
         }
     });
+    
+    
+    
+    
+    
     
     setVisible(true);
     
