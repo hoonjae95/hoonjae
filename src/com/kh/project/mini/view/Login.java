@@ -188,6 +188,7 @@ public class Login {
          
          add(joinPanel);
          
+         
          btn1.addActionListener(new ActionListener() {
 
                @Override

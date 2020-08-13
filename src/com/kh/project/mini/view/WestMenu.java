@@ -228,7 +228,6 @@ public class WestMenu extends JPanel{
      reset.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-//         	JTextArea ta = new Result().getTa();
              for (int i = 0; i < w_menu.length; i++) {
                  menu_btn[i].setEnabled(true);
                  minus[i].setEnabled(false);

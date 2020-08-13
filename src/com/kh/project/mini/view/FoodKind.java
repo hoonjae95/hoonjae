@@ -22,7 +22,7 @@ class FoodKind extends JFrame implements MouseListener{
 	
 	public FoodKind() {
 		
-		super("唱 2锅橇饭烙");
+		super("厚雀盔傈侩");
 		getContentPane().setLayout(null);
 		setSize(1300,800);
 		getContentPane().setBackground(new Color(228,247,186));
@@ -75,17 +75,31 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(koreanmenu);
+//				koreanmenu.setVisible(true);
 				
 				ta.setText(result.getTa().getText());
 				getContentPane().add(ta);
 				System.out.println("FoodKind KoreaMenu 积己");
 				System.out.println(result.getTa().getText());
 				
+				
+//				lb_reference.setVisible(false);
+//				lb_menusel.setVisible(false);
+//				chinamenu.setVisible(false);
+//				japanmenu.setVisible(false);
+//				westmenu.setVisible(false);
+				
 				remove(lb_reference);
 				remove(lb_menusel);
 				remove(chinamenu);
 				remove(japanmenu);
 				remove(westmenu);
+				
+				
+				
+				
+				
+				
 				
 				
 				
@@ -108,12 +122,20 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(japanmenu);
+//				japanmenu.setVisible(true);
 				
 				
 				ta.setText(result.getTa().getText());
 				getContentPane().add(ta);
 				System.out.println("FoodKind JapanMenu 积己");
 				System.out.println(result.getTa().getText());
+				
+				
+//				lb_reference.setVisible(false);
+//				lb_menusel.setVisible(false);
+//				koreanmenu.setVisible(false);
+//				chinamenu.setVisible(false);
+//				westmenu.setVisible(false);
 				
 				remove(lb_reference);
 				remove(lb_menusel);
@@ -142,11 +164,20 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) { 
 				getContentPane().add(chinamenu);
+//				chinamenu.setVisible(true);
 				
 				ta.setText(result.getTa().getText());
 				getContentPane().add(ta);
 				System.out.println("FoodKind ChinaMenu 积己 积己");
 				System.out.println(result.getTa().getText());
+				
+				
+				
+//				lb_reference.setVisible(false);
+//				lb_menusel.setVisible(false);
+//				koreanmenu.setVisible(false);
+//				japanmenu.setVisible(false);
+//				westmenu.setVisible(false);
 				
 				remove(lb_reference);
 				remove(lb_menusel);
@@ -174,11 +205,20 @@ class FoodKind extends JFrame implements MouseListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().add(westmenu);
+//				westmenu.setVisible(true);
 				
 				ta.setText(result.getTa().getText());
 				getContentPane().add(ta);
 				System.out.println("FoodKind WestMenu 积己");
 				System.out.println(result.getTa().getText());
+				
+				
+				
+//				lb_reference.setVisible(false);
+//				lb_menusel.setVisible(false);
+//				koreanmenu.setVisible(false);
+//				chinamenu.setVisible(false);
+//				japanmenu.setVisible(false);
 				
 				
 				remove(lb_reference);
@@ -222,13 +262,15 @@ class FoodKind extends JFrame implements MouseListener{
 		add(close);
         
         close.addActionListener(new ActionListener() {
-            
             @Override
             public void actionPerformed(ActionEvent e) {
                dispose();
             }
         });
-		
+        
+        
+        
+
 		
 		
 		

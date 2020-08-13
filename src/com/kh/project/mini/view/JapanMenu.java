@@ -248,11 +248,17 @@ public class JapanMenu extends JPanel{
     });
     
     
+
+    
+    
+
     
     
     
     
-    setVisible(true);
+    
+    
+//    setVisible(true);
     
 		
 		}

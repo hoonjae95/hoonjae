@@ -13,7 +13,9 @@ public class Result extends JPanel {
 	public static Result getInstance() {
 		if (instance == null) {
 			instance = new Result();
-		} else {
+		} 
+		else {
+			
 			System.out.println("이미 객체가 존재합니다.");
 		}
 		return instance;
@@ -27,7 +29,7 @@ public class Result extends JPanel {
 		ta = new JTextArea();
 		ta.setBackground(new Color(245, 242, 237));
 		ta.setBounds(811, 180, 439, 450);
-		ta.setText("   상품명        단가        수량        합계               최종가격\n\n");
+		ta.setText("   상품명         단가         수량         합계              \n\n");
 		ta.setEditable(false);
 
 
@@ -42,5 +44,5 @@ public class Result extends JPanel {
 	public static void setTa(JTextArea ta) {
 		Result.ta = ta;
 	}
-
+	
 }

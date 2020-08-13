@@ -177,8 +177,10 @@ public class Member_WestMenu extends JPanel{
              @Override
              public void actionPerformed(ActionEvent e) { 
                  show = menu_btn[j].getActionCommand();
-                 ta.append("   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
-                         + "¿ø" + "\n");
+                 
+                 ta.setText(rs.getTa().getText()+"   " + show + "       " + 
+                         price[j] + "        " + count + "         " + price[j] * count
+                                 + "¿ø" + "        " + "\n");
                  rs.setTa(ta);
                  ok[j].setEnabled(false);
              }

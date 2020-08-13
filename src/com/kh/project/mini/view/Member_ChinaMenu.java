@@ -179,9 +179,10 @@ public class Member_ChinaMenu extends JPanel{
              public void actionPerformed(ActionEvent e) { 
                  show = menu_btn[j].getActionCommand();
                  
-                 ta.append("   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
-                         + "원" + "\n");
-                 rs.setTa(ta);
+                 ta.setText(rs.getTa().getText()+"   " + show + "       " + 
+                         price[j] + "        " + count + "         " + price[j] * count
+                                 + "원" + "        "  + "\n");
+                      rs.setTa(ta);
                  ok[j].setEnabled(false);
              }
          });
@@ -239,7 +240,7 @@ public class Member_ChinaMenu extends JPanel{
                  minus[i].setEnabled(false);
                  plus[i].setEnabled(false);
                  amount[i].setText("0");
-//                 ta.setText("   상품명        단가        수량        합계\n\n");
+                 ta.setText("   상품명        단가        수량        합계\n\n");
 
              }
          }

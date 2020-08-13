@@ -22,7 +22,7 @@ class Member_FoodKind extends JFrame implements MouseListener{
 	
 	public Member_FoodKind() {
 		
-		super("나 2번쨰프레임");
+		super("회원전용");
 		getContentPane().setLayout(null);
 		setSize(1300,800);
 		getContentPane().setBackground(new Color(228,247,186));

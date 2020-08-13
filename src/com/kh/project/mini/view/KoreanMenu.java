@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import java.awt.CardLayout;
 
 
 
@@ -34,8 +35,9 @@ public class KoreanMenu extends JPanel {
 		
 		JPanel foodPanel = new JPanel(); // 공통패널
 		foodPanel.setBounds(12, 172, 713, 560);
-		foodPanel.setLayout(null);
 		foodPanel.setBackground(new Color(228,247,186));
+		
+		
 		
 		// 탭 누르면 주문 현황
 		ImageIcon orderlist = new ImageIcon("image/orderlist.png");
@@ -124,6 +126,7 @@ public class KoreanMenu extends JPanel {
         foodPanel.add(foodname[i]);
     }
     add(foodPanel);
+    foodPanel.setLayout(null);
         
         
         
@@ -246,7 +249,7 @@ public class KoreanMenu extends JPanel {
         });
         
  
-        // reset 초기화 버튼
+        // reset 초기화 버튼 ★★원본임★★★
         reset.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -257,16 +260,27 @@ public class KoreanMenu extends JPanel {
                     plus[i].setEnabled(false);
                     amount[i].setText("0");
                     ta.setText("   상품명        단가        수량        합계\n\n");
+                    
                 }
             }
         });
+        
+        
+
+        
+        
+
  
  
         
 		
-		setVisible(true);
+//		setVisible(true);
 		
 		}
+	
+
+	
+	
 
 	
 }

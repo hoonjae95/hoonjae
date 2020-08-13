@@ -197,10 +197,11 @@ public class Member_KoreanMenu extends JPanel {
                 public void actionPerformed(ActionEvent e) { 
                     show = menu_btn[j].getActionCommand();
                     
-                    ta.setText(rs.getTa().getText()+"   " + show + "       " + price[j] + "        " + count + "         " + price[j] * count
-                            + "¿ø" + "\n");
-                 rs.setTa(ta);
-                    ok[j].setEnabled(false);
+                    ta.setText(rs.getTa().getText()+"   " + show + "       " + 
+                            price[j] + "        " + count + "         " + price[j] * count
+                                    + "¿ø" + "        " +  "\n");
+                         rs.setTa(ta);
+                            ok[j].setEnabled(false);
                 }
             });
             
